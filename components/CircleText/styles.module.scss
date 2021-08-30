@@ -1,0 +1,82 @@
+@import "../../styles/variables";
+
+.circle {
+    position: relative;
+    width: $avatar-size;
+    height: $avatar-size;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 150px transparentize($color: $text-color, $amount: 0.2) inset,
+        10px 10px 300px transparentize($color: $text-color, $amount: 0.7),
+        -10px -10px 300px transparentize($color: $text-color, $amount: 0.7),
+        -10px 10px 300px transparentize($color: $text-color, $amount: 0.7),
+        10px -10px 300px transparentize($color: $text-color, $amount: 0.7);
+
+    > .text {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        font-weight: 900;
+        font: $avatar-size/9 Inconsolata, monospace;
+        animation: rotateText 20s linear infinite;
+        color: $text-color;
+        text-shadow: 1px 1px 20px $text-color;
+
+        > span {
+            position: absolute;
+            left: 50%;
+            transform-origin: 0 $avatar-size/2;
+        }
+    }
+}
+
+.glitch {
+    $glitchColor1: #49fc00;
+    $glitchColor2: #b300fc;
+    $offset1: 2px;
+    $offset2: -2px;
+
+    text-transform: uppercase;
+    position: relative;
+
+    &::before,
+    &::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &::before {
+        left: $offset1;
+        text-shadow: -1px 0 $glitchColor1;
+        clip: rect(24px, 550px, 90px, 0);
+        animation: noise-anim 3s infinite linear alternate;
+    }
+
+    &::after {
+        left: $offset2;
+        text-shadow: 1px 0 $glitchColor2;
+        clip: rect(85px, 550px, 140px, 0);
+        animation: noise-anim 2.5s infinite linear alternate;
+    }
+}
+
+@keyframes rotateText {
+    0% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes noise-anim {
+    $steps: 20;
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} {
+            clip: rect(random(150) + px, 9999px, random(140) + px, 0);
+        }
+    }
+}

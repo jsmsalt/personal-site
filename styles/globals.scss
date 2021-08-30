@@ -1,0 +1,62 @@
+@import "variables";
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@900&display=swap");
+
+body {
+    background-color: $background-color;
+    background: radial-gradient(
+        ellipse at right 34% bottom 5%,
+        lighten($background-color, 0.2),
+        $background-color 80%,
+        $background-color
+    );
+    background-position: left;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    color: white;
+    font: 1.3rem Inconsolata, monospace;
+    text-shadow: 0 0 5px white;
+
+    &::after {
+        content: "";
+        position: absolute;
+        opacity: 0.3;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba($background-color, 1),
+            rgba($background-color, 1) 2px,
+            transparent,
+            transparent 4px
+        );
+        pointer-events: none;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: 1000;
+        opacity: 0.4;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: radial-gradient(ellipse at right 34% bottom 5%, transparent 60%, $background-color);
+        pointer-events: none;
+    }
+}
+::selection {
+    background: lighten($background-color, 0.2);
+    text-shadow: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}

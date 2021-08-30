@@ -1,0 +1,32 @@
+.console {
+    margin-top: 30px;
+    font: 1.6rem Inconsolata, monospace;
+    animation: text-blink 0.01s steps(2) infinite;
+
+    &::after {
+        content: "▮";
+        opacity: 1;
+        margin-left: 5px;
+        animation: blink 1s steps(1) infinite;
+    }
+}
+
+@keyframes text-blink {
+    from,
+    to {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes blink {
+    from,
+    to {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,109 @@
+@import "../../styles/variables";
+
+.avatars {
+    position: relative;
+    width: $avatar-size * 0.7;
+    height: $avatar-size * 0.7;
+    border-radius: 50%;
+    overflow: hidden;
+
+    > .avatar {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url(../../public/avatar.png);
+
+        &:nth-child(2) {
+            clip: rect(0, 0, 0, 0);
+            animation: imageglitch 3s infinite linear alternate-reverse;
+            left: 2px;
+        }
+    }
+}
+
+@keyframes imageglitch {
+    0% {
+        clip: rect(252px, 244px, 58px, 0);
+    }
+    4% {
+        clip: rect(345px, 244px, 164px, 0);
+    }
+    8% {
+        clip: rect(22px, 244px, 315px, 0);
+    }
+    12% {
+        clip: rect(266px, 244px, 181px, 0);
+    }
+    16% {
+        clip: rect(228px, 244px, 149px, 0);
+    }
+    20% {
+        clip: rect(37px, 244px, 34px, 0);
+    }
+    24% {
+        clip: rect(363px, 244px, 260px, 0);
+    }
+    28% {
+        clip: rect(2px, 244px, 261px, 0);
+    }
+    32% {
+        clip: rect(192px, 244px, 1px, 0);
+    }
+    36% {
+        clip: rect(186px, 244px, 56px, 0);
+    }
+    40% {
+        clip: rect(272px, 244px, 230px, 0);
+    }
+    44% {
+        clip: rect(299px, 244px, 2px, 0);
+    }
+    48% {
+        clip: rect(270px, 244px, 68px, 0);
+    }
+    52% {
+        clip: rect(66px, 244px, 221px, 0);
+    }
+    56% {
+        clip: rect(92px, 244px, 261px, 0);
+    }
+    60% {
+        clip: rect(189px, 244px, 9px, 0);
+    }
+    64% {
+        clip: rect(297px, 244px, 147px, 0);
+    }
+    68% {
+        clip: rect(67px, 244px, 116px, 0);
+    }
+    72% {
+        clip: rect(356px, 244px, 296px, 0);
+    }
+    76% {
+        clip: rect(77px, 244px, 288px, 0);
+    }
+    80% {
+        clip: rect(340px, 244px, 225px, 0);
+    }
+    84% {
+        clip: rect(364px, 244px, 160px, 0);
+    }
+    88% {
+        clip: rect(60px, 244px, 260px, 0);
+    }
+    92% {
+        clip: rect(103px, 244px, 342px, 0);
+    }
+    96% {
+        clip: rect(128px, 244px, 136px, 0);
+    }
+    100% {
+        clip: rect(226px, 244px, 270px, 0);
+    }
+}
